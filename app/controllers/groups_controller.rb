@@ -15,6 +15,7 @@ before_action :authenticate_user! , only: [:new, :create, :destroy, :update, :ed
 
   def show
     @group = Group.find(params[:id])
+    @posts = @group.posts 
   end
 
   def create
