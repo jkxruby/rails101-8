@@ -23,6 +23,7 @@ before_action :authenticate_user! , only: [:new, :create, :destroy, :update, :ed
     @group.user = current_user
 
     if @group.save
+      current_user.join!(@group)
       redirect_to groups_path
     else
       render :new
